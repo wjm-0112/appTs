@@ -1,0 +1,171 @@
+:root {
+  --page-bg: #f4f6fa;
+  --card-bg: #ffffff;
+  --text-1: #1c2433;
+  --text-2: #5b6675;
+  --text-3: #737d8d;
+  --line: #e4e9f1;
+  --line-soft: #f1f4f9;
+  --brand: #2e6be6;
+  --chip-info-bg: #e7f0fd;
+  --chip-info-fg: #2057c9;
+  --chip-ok-bg: #e4f6ed;
+  --chip-ok-fg: #157347;
+  --chip-warn-bg: #fbf0dc;
+  --chip-warn-fg: #8a5a0a;
+  --chip-danger-bg: #fbebeb;
+  --chip-danger-fg: #b23a3a;
+  --chip-gray-bg: #eef1f5;
+  --chip-gray-fg: #5b6675;
+  --chip-teal-bg: #e1f5ee;
+  --chip-teal-fg: #0f6e56;
+  --chip-active-bg: #e7f0fd;
+  --chip-active-fg: #2057c9;
+}
+[data-theme='dark'] {
+  --page-bg: #14171c;
+  --card-bg: #1d2129;
+  --text-1: #e6eaf2;
+  --text-2: #a7b0bf;
+  --text-3: #8a93a5;
+  --line: #30343d;
+  --line-soft: #262a33;
+  --chip-info-bg: #1d3357;
+  --chip-info-fg: #9fc2ff;
+  --chip-ok-bg: #14362b;
+  --chip-ok-fg: #74d3a4;
+  --chip-warn-bg: #3d311a;
+  --chip-warn-fg: #e6c17c;
+  --chip-danger-bg: #432227;
+  --chip-danger-fg: #f2a6a6;
+  --chip-gray-bg: #2a2f38;
+  --chip-gray-fg: #9aa3b0;
+  --chip-teal-bg: #0f332e;
+  --chip-teal-fg: #6fd6c0;
+  --chip-active-bg: #1d3357;
+  --chip-active-fg: #9fc2ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  color: var(--text-1);
+  background: var(--page-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 页面内容容器 */
+.page-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 48px;
+  width: 100%;
+}
+
+/* 通用工具 */
+.text-2 {
+  color: var(--text-2);
+}
+.text-3 {
+  color: var(--text-3);
+}
+.muted {
+  color: var(--text-3);
+}
+
+/* 滚动条微调 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 数字等宽（统计/计数） */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 可点元素可见焦点 */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* 双栏容器（App 详情 / 知识库），窄屏自动单列 */
+.layout-2col {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.scroll-x {
+  overflow-x: auto;
+}
+
+/* 顶栏小屏适配 */
+.hd-menu {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.hd-menu::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .layout-2col {
+    grid-template-columns: 1fr;
+  }
+  .page-wrap {
+    padding: 14px 12px 40px;
+  }
+  .kb-nav,
+  .steps-col {
+    position: static !important;
+  }
+}
+@media (max-width: 560px) {
+  .brand-txt {
+    font-size: 14px !important;
+  }
+  .hd-time {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  input[type='checkbox'] {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
